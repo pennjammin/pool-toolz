@@ -77,7 +77,7 @@ class CardFlipper extends Component {
                     <Front  onClick={this.flip}>
                         <FlexColumn>
                             {this.props.children[0]}
-                            <FlexRow><KeyboardArrowRight size='45'></KeyboardArrowRight></FlexRow>
+                            <FlexRow><KeyboardArrowRight size='50'></KeyboardArrowRight></FlexRow>
                         </FlexColumn>
                     </Front>
                     <Back>
@@ -85,7 +85,7 @@ class CardFlipper extends Component {
                             {this.props.children[1]}
                             
                         </FlexColumn>
-                        <FlexRow onClick={this.flip}><KeyboardArrowLeft size='45'></KeyboardArrowLeft></FlexRow>
+                        <FlexRow onClick={this.flip}><KeyboardArrowLeft size='50'></KeyboardArrowLeft></FlexRow>
                     </Back>
                 </Flipper>
             </FlipContainer>
