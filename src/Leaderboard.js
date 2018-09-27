@@ -27,6 +27,12 @@ const NameInput = styled.input`
     color: #fff;
 `;
 
+const NameForm = styled.form`
+    color: #F3CD5D;
+    font-size: 25px;
+`;
+
+
 
 /**
    * @class Leaderboard
@@ -198,13 +204,10 @@ class Leaderboard extends Component {
           <tbody>
             <tr>
               <Data colspan="10000">
-                <form onChange={this.filterRank}>
+                <NameForm onChange={this.filterRank}>
                   Name: <NameInput type="search" name="search" placeholder="Search"/>
-                </form>
+                </NameForm>
               </Data>
-            </tr>
-            <tr>
-              <Data onClick={ this.sortUsersByName }></Data>
               <Data onClick={ this.sortUsersByScore }> Rank </Data>
               <Data onClick={ this.sortUsersByScore }> Score </Data>
             </tr>

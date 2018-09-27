@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Leaderboard from './Leaderboard.js';
 import CardFlipper from './CardFlipper.js'
+import Tracker from './Tracker.js'
 
 import eightBall from './static/eight-jawn.svg';
 import rings from './static/rings.svg';
@@ -31,7 +32,7 @@ const Rings = styled.img`
   position: relative;
   height: 125px;
   top: 0;
-  left: ${props => props.front ? "88px" : "0"}
+  left: 87px;
   margin-left: 50px;
 `;
 
@@ -83,19 +84,18 @@ class App extends Component {
   render() {
     return (
       <AppDiv className="App">
+      <div>
         <LayeredImages>
-          <CardFlipper>
-            <FrontDiv>
-              <Rings src={rings} alt="" front/>
-              <EightBall src={eightBall} />
-            </FrontDiv>
-            <div>
-              <Rings src={rings} alt=""/>
-              <EightBall src={eightBall} />
-              <Leaderboard users={this.state.users} paginate={this.state.paginate}/>
-            </div>
-          </CardFlipper>
+          <Rings src={rings} alt=""/>
+          <EightBall src={eightBall} />
         </LayeredImages>
+        <CardFlipper>
+          <Tracker></Tracker>
+          <div>
+            <Leaderboard users={this.state.users} paginate={this.state.paginate}/>
+          </div>
+        </CardFlipper>
+        </div>
       </AppDiv>
     );
   }
