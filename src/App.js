@@ -63,7 +63,7 @@ class App extends Component {
               {name: "Doug", score: 7},
               {name: "Matt", score: 15},
               {name: "Jake", score: 4},
-              {name: "Tim", score: 3},
+              {name: "Jill", score: 3},
               {name: "Jay", score: 7},
               {name: "Jackie", score: 8},
               {name: "Alec", score: 4},
