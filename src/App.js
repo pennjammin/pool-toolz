@@ -31,6 +31,7 @@ const Rings = styled.img`
   height: 175px;
   top: 0;
   left: 0;
+  margin-left: 20px;
 `;
 
 const EightBall = styled.img`
@@ -38,6 +39,7 @@ const EightBall = styled.img`
   position: absolute;
   top: 73px;
   left: 109px;
+  margin-left: 20px;
 
   :hover {
     animation: App-logo-spin .5s linear;
