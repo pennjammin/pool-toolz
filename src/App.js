@@ -53,30 +53,13 @@ const EightBall = styled.img`
   }
 `;
 
-const FrontDiv = styled.div`
-  width: 500px;
-  height: 536px;
-`;
-
-
-
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      users: [{name: "Penn", score: 1},
-              {name: "Doug", score: 7},
-              {name: "Matt", score: 15},
-              {name: "Jake", score: 4},
-              {name: "Jill", score: 3},
-              {name: "Jay", score: 7},
-              {name: "Jackie", score: 8},
-              {name: "Alec", score: 4},
-              {name: "BJ", score: 3},
-              {name: "Ellen", score: 2},
-              {name: "Tuco", score: 1},],
+      users: [ {name: `Penn`, score: 1}, ],
       paginate: 10
     };
   }

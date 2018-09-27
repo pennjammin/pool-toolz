@@ -22,13 +22,13 @@ const StyledTextField = styled(TextField)`
 `;
 
 const StyledButton = styled(Button)`
-  background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
-  border-radius: 3px;
-  border: 0;
-  color: white;
-  height: 48px;
-  padding: 0 30px;
-  box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+    background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+    border-radius: 3px;
+    border: 0;
+    color: white;
+    height: 48px;
+    padding: 0 30px;
+    box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
 `;
 
 class Tracker extends Component {
@@ -36,6 +36,7 @@ class Tracker extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            gamePlay: false,
             players: []
         }
     }
@@ -50,6 +51,8 @@ class Tracker extends Component {
         });
 
         localStorage.setItem('players', JSON.stringify(this.state.players));
+
+        this.switchOnGameplay();
     }
 
     hydrateStateWithLocalStorage() {
@@ -72,8 +75,15 @@ class Tracker extends Component {
         }
     }
 
+    switchOnGameplay() {
+        this.setState({
+            gamePlay: true
+        });
+    }
+
     render () {
 
+     if(this.state.gamePlay === false) {   
         return (
             <PlayerContainer>
                 <SubmitForm onSubmit={this.onSubmit}>
@@ -90,7 +100,7 @@ class Tracker extends Component {
                         inputRef={(elm) => {
                             this.playerTwo = elm;
                         }}
-                        id="name" 
+                        id="name"
                         type="name"
                         label="Player 2:"
                         required
@@ -100,7 +110,14 @@ class Tracker extends Component {
                     </StyledButton>
                 </SubmitForm>
             </PlayerContainer>
-        )
+            )
+        } else {
+            return (
+                <PlayerContainer>
+                    AYO
+                </PlayerContainer>
+            )
+        }
     }
 }
             
