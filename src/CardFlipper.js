@@ -51,6 +51,7 @@ const FlexRow = styled.div`
     top: 580px;
     bottom: 0px;
     left: 200px;
+    color: #E7E7EA;
 `
 
 class CardFlipper extends Component {

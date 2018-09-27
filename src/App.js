@@ -31,7 +31,7 @@ const Rings = styled.img`
   position: relative;
   height: 125px;
   top: 0;
-  left: 0;
+  left: ${props => props.front ? "88px" : "0"}
   margin-left: 50px;
 `;
 
@@ -85,7 +85,10 @@ class App extends Component {
       <AppDiv className="App">
         <LayeredImages>
           <CardFlipper>
-            <FrontDiv>HI THERE!</FrontDiv>
+            <FrontDiv>
+              <Rings src={rings} alt="" front/>
+              <EightBall src={eightBall} />
+            </FrontDiv>
             <div>
               <Rings src={rings} alt=""/>
               <EightBall src={eightBall} />
