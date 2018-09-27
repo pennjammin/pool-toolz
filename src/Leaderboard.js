@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const Title = styled.h1`
-    color: darkred;
+    color: #F3CD5D;
 `;
 
 const Table = styled.table`
@@ -202,15 +202,15 @@ class Leaderboard extends Component {
               </Data>
             </tr>
             <tr>
+              <Data onClick={ this.sortUsersByName }></Data>
               <Data onClick={ this.sortUsersByScore }> Rank </Data>
-              <Data onClick={ this.sortUsersByName }> Name </Data>
               <Data onClick={ this.sortUsersByScore }> Score </Data>
             </tr>
             {
             this.state.ranking.map((user, index) =>
                <tr key={index}>
-                { user.page === this.state.page ? <Data>{ user.rank }</Data> : null }
                 { user.page === this.state.page ? <Data >{ user.name }</Data> : null }
+                { user.page === this.state.page ? <Data>{ user.rank }</Data> : null }
                 { user.page === this.state.page ? <Data >{ user.score }</Data> : null }
                </tr>
              )

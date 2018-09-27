@@ -57,17 +57,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: [{name: "penn", score: 5},
-              {name: "string", score: 5},
-              {name: "string", score: 5},
-              {name: "string", score: 5},
-              {name: "string", score: 5},
-              {name: "string", score: 5},
-              {name: "string", score: 5},
-              {name: "string", score: 5},
-              {name: "string", score: 5},
-              {name: "string", score: 5},
-              {name: "string", score: 5},],
+      users: [{name: "Penn", score: 5},
+              {name: "Doug", score: 5},
+              {name: "Matt", score: 5},
+              {name: "Fred", score: 5},
+              {name: "Tim", score: 5},
+              {name: "Jay", score: 5},
+              {name: "Jackie", score: 5},
+              {name: "Alec", score: 5},
+              {name: "BJ", score: 5},
+              {name: "Ellen", score: 5},
+              {name: "Tuco", score: 5},],
       paginate: 10
     };
   }
