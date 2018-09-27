@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Leaderboard from './Leaderboard.js';
 
 import eightBall from './static/eight-jawn.svg';
 import rings from './static/rings.svg';
@@ -52,12 +53,32 @@ const EightBall = styled.img`
 
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [{name: "penn", score: 5},
+              {name: "string", score: 5},
+              {name: "string", score: 5},
+              {name: "string", score: 5},
+              {name: "string", score: 5},
+              {name: "string", score: 5},
+              {name: "string", score: 5},
+              {name: "string", score: 5},
+              {name: "string", score: 5},
+              {name: "string", score: 5},
+              {name: "string", score: 5},],
+      paginate: 10
+    };
+  }
+
   render() {
     return (
       <AppDiv className="App">
         <LayeredImages>
           <Rings src={rings} alt=""/>
           <EightBall src={eightBall} />
+          <Leaderboard users={this.state.users} paginate={this.state.paginate}/>
         </LayeredImages>
       </AppDiv>
     );
