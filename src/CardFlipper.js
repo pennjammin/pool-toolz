@@ -75,16 +75,15 @@ class CardFlipper extends Component {
         return (
             <FlipContainer>
                 <Flipper flipped={this.state.flipped}>
-                    <Front  onClick={this.flip}>
+                    <Front>
                         <FlexColumn>
                             {this.props.children[0]}
-                            <FlexRow><KeyboardArrowRight size='50'></KeyboardArrowRight></FlexRow>
+                            <FlexRow onClick={this.flip}><KeyboardArrowRight size='50'></KeyboardArrowRight></FlexRow>
                         </FlexColumn>
                     </Front>
                     <Back>
                         <FlexColumn>
                             {this.props.children[1]}
-                            
                         </FlexColumn>
                         <FlexRow onClick={this.flip}><KeyboardArrowLeft size='50'></KeyboardArrowLeft></FlexRow>
                     </Back>
