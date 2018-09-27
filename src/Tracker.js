@@ -40,10 +40,36 @@ class Tracker extends Component {
         }
     }
 
+    componentDidMount() {
+        this.hydrateStateWithLocalStorage();
+    }
+
     onSubmit = async (e) => {
         this.setState({
-            players: this.state.players.push(this.playerOne, this.playerTwo)
+            players: this.state.players.push(this.playerOne.value, this.playerTwo.value)
         });
+
+        localStorage.setItem('players', JSON.stringify(this.state.players));
+    }
+
+    hydrateStateWithLocalStorage() {
+        // for all items in state
+        for (let key in this.state) {
+          // if the key exists in localStorage
+          if (localStorage.hasOwnProperty(key)) {
+            // get the key's value from localStorage
+            let value = localStorage.getItem(key);
+    
+            // parse the localStorage string and setState
+            try {
+              value = JSON.parse(value);
+              this.setState({ [key]: value });
+            } catch (e) {
+              // handle empty string
+              this.setState({ [key]: value });
+            }
+          }
+        }
     }
 
     render () {
@@ -70,7 +96,7 @@ class Tracker extends Component {
                         required
                     />
                     <StyledButton type="submit">
-                        <p>YAY</p>
+                        <p>PLAY BALL!</p>
                     </StyledButton>
                 </SubmitForm>
             </PlayerContainer>
