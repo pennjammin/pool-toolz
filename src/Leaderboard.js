@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 
-const Title = styled.h1`
+{/*const Title = styled.h1`
     color: #F3CD5D;
-`;
+`;*/}
 
 const Table = styled.table`
     border: 0;
@@ -196,9 +196,6 @@ class Leaderboard extends Component {
       <div>
         <Table id="lBoard">
           <tbody>
-            <tr>
-              <Data colspan="10000"><Title>Leaderboard</Title></Data>
-            </tr>
             <tr>
               <Data colspan="10000">
                 <form onChange={this.filterRank}>

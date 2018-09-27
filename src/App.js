@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Leaderboard from './Leaderboard.js';
+import CardFlipper from './CardFlipper.js'
 
 import eightBall from './static/eight-jawn.svg';
 import rings from './static/rings.svg';
@@ -28,18 +29,18 @@ const LayeredImages = styled.div`
 
 const Rings = styled.img`
   position: relative;
-  height: 175px;
+  height: 125px;
   top: 0;
   left: 0;
-  margin-left: 20px;
+  margin-left: 50px;
 `;
 
 const EightBall = styled.img`
-  height: 30px;
+  height: 20px;
   position: absolute;
-  top: 73px;
-  left: 109px;
-  margin-left: 20px;
+  top: 53px;
+  left: 166px;
+  margin-left: 50px;
 
   :hover {
     animation: App-logo-spin .5s linear;
@@ -49,6 +50,11 @@ const EightBall = styled.img`
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); } 
   }
+`;
+
+const FrontDiv = styled.div`
+  width: 500px;
+  height: 536px;
 `;
 
 
@@ -78,9 +84,14 @@ class App extends Component {
     return (
       <AppDiv className="App">
         <LayeredImages>
-          <Rings src={rings} alt=""/>
-          <EightBall src={eightBall} />
-          <Leaderboard users={this.state.users} paginate={this.state.paginate}/>
+          <CardFlipper>
+            <FrontDiv>HI THERE!</FrontDiv>
+            <div>
+              <Rings src={rings} alt=""/>
+              <EightBall src={eightBall} />
+              <Leaderboard users={this.state.users} paginate={this.state.paginate}/>
+            </div>
+          </CardFlipper>
         </LayeredImages>
       </AppDiv>
     );
