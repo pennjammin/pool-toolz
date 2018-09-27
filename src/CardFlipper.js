@@ -29,7 +29,7 @@ const Front = styled.div`
 
 const Back = styled.div`
   width: 500px;
-  height: 500px;
+  height: 536px;
   backface-visibility: hidden;
   position: absolute;
   top: 0;
@@ -48,9 +48,9 @@ const FlexRow = styled.div`
     display: flex;
     align-items: center;
     position: absolute;
-    top: 580px;
+    top: 315px;
     bottom: 0px;
-    left: 200px;
+    left: 220px;
     color: #E7E7EA;
 `
 
@@ -78,8 +78,8 @@ class CardFlipper extends Component {
                     <Front>
                         <FlexColumn>
                             {this.props.children[0]}
-                            <FlexRow onClick={this.flip}><KeyboardArrowRight size='50'></KeyboardArrowRight></FlexRow>
                         </FlexColumn>
+                        <FlexRow onClick={this.flip}><KeyboardArrowRight size='50'></KeyboardArrowRight></FlexRow>
                     </Front>
                     <Back>
                         <FlexColumn>
