@@ -62,7 +62,7 @@ class App extends Component {
       users: [{name: "Penn", score: 1},
               {name: "Doug", score: 7},
               {name: "Matt", score: 15},
-              {name: "Fred", score: 4},
+              {name: "Jake", score: 4},
               {name: "Tim", score: 3},
               {name: "Jay", score: 7},
               {name: "Jackie", score: 8},
