@@ -51,6 +51,7 @@ class Tracker extends Component {
     }
 
     onSubmit = async (event) => {
+        event.preventDefault();
         this.setState({
             players: this.state.players.push({name: this.playerOne.value, score: 0}, {name: this.playerTwo.value, score:0})
         }, ()=>{this.switchOnGameplay();});

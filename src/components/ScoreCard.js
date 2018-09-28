@@ -142,7 +142,7 @@ class ScoreCard extends Component {
                 ballsLeft: this.state.ballsLeft - 1
             });
         }
-        if(this.state.ballsLeft < 1){
+        if(this.state.ballsLeft < 2){
             console.log(this.state.currentPlayers[0].score + 1)
             this.state.currentPlayers[1].score += 1;
             this.state.players.pop();
