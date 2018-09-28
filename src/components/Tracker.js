@@ -40,7 +40,7 @@ class Tracker extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gamePlay: false,
+            gamePlay: true,
             players: []
         };
     }
@@ -52,11 +52,11 @@ class Tracker extends Component {
     onSubmit = async (e) => {
         this.setState({
             players: this.state.players.push(this.playerOne.value, this.playerTwo.value)
-        });
+        }, ()=>{this.switchOnGameplay();});
 
         localStorage.setItem('players', JSON.stringify(this.state.players));
 
-        this.switchOnGameplay();
+        
     }
 
     hydrateStateWithLocalStorage() {

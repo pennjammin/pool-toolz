@@ -44,11 +44,21 @@ const FlexColumn = styled.div`
     justify-content: center;
 `
 
-const FlexRow = styled.div`
+const RightArrow = styled(KeyboardArrowRight)`
     display: flex;
     align-items: center;
     position: absolute;
-    top: 343px;
+    top: 390px;
+    bottom: 0px;
+    left: 226px;
+    color: #E7E7EA;
+`
+
+const LeftArrow = styled(KeyboardArrowLeft)`
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 390px;
     bottom: 0px;
     left: 226px;
     color: #E7E7EA;
@@ -79,13 +89,13 @@ class CardFlipper extends Component {
                         <FlexColumn>
                             {this.props.children[0]}
                         </FlexColumn>
-                        <FlexRow onClick={this.flip}><KeyboardArrowRight size='50'></KeyboardArrowRight></FlexRow>
+                        <RightArrow onClick={this.flip} size='50'></RightArrow>
                     </Front>
                     <Back>
                         <FlexColumn>
                             {this.props.children[1]}
                         </FlexColumn>
-                        <FlexRow onClick={this.flip}><KeyboardArrowLeft size='50'></KeyboardArrowLeft></FlexRow>
+                        <LeftArrow onClick={this.flip} size='50'></LeftArrow>
                     </Back>
                 </Flipper>
             </FlipContainer>

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import Button from '@material-ui/core/Button';
 
+
+
 const ColumnContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -42,7 +44,7 @@ const DatumColumn = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 25px;
+    margin-top: 75px;
 `;
 
 const PlayerTitle = styled.div`
@@ -52,12 +54,26 @@ const PlayerTitle = styled.div`
 
 const ScoreTitle = styled.div`
     font-size: 35px;
+    color: ${props => props.playing ? "#F3CD5D" : "#61DAFB"};
+`;
+
+const PointsTitle = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
     color: pink;
+    margin-bottom: 30px;
+`;
+
+const PointsText = styled.div`
+    color: #61DAFB;
 `;
 
 const DatumTitle = styled.div`
     font-size: 30px;
-    color: pink;
+    color: #61DAFB;
     margin: 5px;
 
 `;
@@ -81,10 +97,6 @@ const BallDiv = styled.div`
     padding: 20px;
 `;
 
-const BallText = styled.div`
-    color: white;
-`;
-
 const StyledButton = styled(Button)`
     
     &&{
@@ -105,6 +117,7 @@ class ScoreCard extends Component {
     constructor(props){
         super(props);
         this.state = {
+            activePlayerOne: true,
             currentPlayers: JSON.parse(localStorage.getItem('players')) ? JSON.parse(localStorage.getItem('players')).slice(-2) : ["Player One", "Player Two"],
             totalPointsP1: 0,
             safePointsP1: 0,
@@ -118,25 +131,57 @@ class ScoreCard extends Component {
         };
 
         this.onClickSafe = this.onClickSafe.bind(this);
-        this.onClickMiss = this.onClickSafe.bind(this);
-        this.onClickFoul = this.onClickSafe.bind(this);
+        this.onClickMiss = this.onClickMiss.bind(this);
+        this.onClickFoul = this.onClickFoul.bind(this);
     }
 
     onClickSafe(){
-
+        if(this.state.activePlayerOne){
+            this.setState({
+                activePlayerOne: !this.state.activePlayerOne,
+                safePointsP1: this.state.safePointsP1 + 1
+            });
+        }else{
+            this.setState({
+                activePlayerOne: !this.state.activePlayerOne,
+                safePointsP2: this.state.safePointsP2 + 1
+            });
+        }
+        
     }
 
     onClickMiss(){
-
+        if(this.state.activePlayerOne){
+            this.setState({
+                activePlayerOne: !this.state.activePlayerOne,
+                missPointsP1: this.state.missPointsP1 + 1
+            });
+        }else{
+            this.setState({
+                activePlayerOne: !this.state.activePlayerOne,
+                missPointsP2: this.state.missPointsP2 + 1
+            });
+        }
     }
 
     onClickFoul(){
-
+        if(this.state.activePlayerOne){
+            this.setState({
+                activePlayerOne: !this.state.activePlayerOne,
+                foulPointsP1: this.state.foulPointsP1 + 1
+            });
+        }else{
+            this.setState({
+                activePlayerOne: !this.state.activePlayerOne,
+                foulPointsP2: this.state.foulPointsP2 + 1
+            });
+        }
     }
 
     render () {
 
         const {
+            activePlayerOne,
             currentPlayers,
             totalPointsP1,
             safePointsP1,
@@ -154,7 +199,7 @@ class ScoreCard extends Component {
                 <PlayerColumn>
                     <ScoreColumn>
                         <PlayerTitle>{currentPlayers[0]}</PlayerTitle>
-                        <ScoreTitle>{totalPointsP1}</ScoreTitle>
+                        <ScoreTitle playing={activePlayerOne}>{totalPointsP1}</ScoreTitle>
                     </ScoreColumn>
                     <DatumColumn>
                         <DatumTitle>{safePointsP1}</DatumTitle>
@@ -163,19 +208,23 @@ class ScoreCard extends Component {
                     </DatumColumn>
                 </PlayerColumn>
                 <CenterColumn>
+                        <PointsTitle>
+                            <div>POINTS</div>
+                            <PointsText>125</PointsText>
+                        </PointsTitle>
                     <BallDiv>
-                        <BallText>{ballsLeft}</BallText>
+                        <PointsText>{ballsLeft}</PointsText>
                     </BallDiv>
                     <ButtonDiv>
-                        <StyledButton>SAFE</StyledButton>
-                        <StyledButton>MISS</StyledButton>
-                        <StyledButton>FOUL</StyledButton>
+                        <StyledButton onClick={this.onClickSafe}>SAFE</StyledButton>
+                        <StyledButton onClick={this.onClickMiss}>MISS</StyledButton>
+                        <StyledButton onClick={this.onClickFoul}>FOUL</StyledButton>
                     </ButtonDiv>
                 </CenterColumn>
                 <PlayerColumn>
                     <ScoreColumn>
                         <PlayerTitle>{currentPlayers[1]}</PlayerTitle>
-                        <ScoreTitle>{totalPointsP2}</ScoreTitle>
+                        <ScoreTitle playing={!activePlayerOne}>{totalPointsP2}</ScoreTitle>
                     </ScoreColumn>
                     <DatumColumn>
                         <DatumTitle>{safePointsP2}</DatumTitle>
