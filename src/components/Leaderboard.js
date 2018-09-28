@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 
-{/*const Title = styled.h1`
-    color: #F3CD5D;
-`;*/}
-
 const Table = styled.table`
     border: 0;
     border-collapse: collapse;

@@ -50,7 +50,7 @@ const FlexRow = styled.div`
     position: absolute;
     top: 315px;
     bottom: 0px;
-    left: 220px;
+    left: 226px;
     color: #E7E7EA;
 `
 

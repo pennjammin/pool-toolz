@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+import ScoreCard from './ScoreCard.js';
+
 const PlayerContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -31,12 +33,22 @@ const StyledButton = styled(Button)`
     box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
 `;
 
+const ColumnContainer = styled.div`
+    display: flex;
+`;
+
+const PlayerColumn = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
 class Tracker extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            gamePlay: false,
+            gamePlay: true,
             players: []
         }
     }
@@ -56,19 +68,13 @@ class Tracker extends Component {
     }
 
     hydrateStateWithLocalStorage() {
-        // for all items in state
         for (let key in this.state) {
-          // if the key exists in localStorage
           if (localStorage.hasOwnProperty(key)) {
-            // get the key's value from localStorage
             let value = localStorage.getItem(key);
-    
-            // parse the localStorage string and setState
             try {
               value = JSON.parse(value);
               this.setState({ [key]: value });
             } catch (e) {
-              // handle empty string
               this.setState({ [key]: value });
             }
           }
@@ -114,7 +120,7 @@ class Tracker extends Component {
         } else {
             return (
                 <PlayerContainer>
-                    AYO
+                    <ScoreCard></ScoreCard>
                 </PlayerContainer>
             )
         }

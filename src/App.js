@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Leaderboard from './Leaderboard.js';
-import CardFlipper from './CardFlipper.js'
-import Tracker from './Tracker.js'
+import Leaderboard from './components/Leaderboard.js';
+import CardFlipper from './components/CardFlipper.js'
+import Tracker from './components/Tracker.js'
 
 import eightBall from './static/eight-jawn.svg';
 import rings from './static/rings.svg';
@@ -32,7 +32,7 @@ const Rings = styled.img`
   position: relative;
   height: 125px;
   top: 0;
-  left: 100px;
+  left: 115px;
   margin-left: 50px;
 `;
 
@@ -40,7 +40,7 @@ const EightBall = styled.img`
   height: 20px;
   position: absolute;
   top: 53px;
-  left: 178px;
+  left: 193px;
   margin-left: 50px;
 
   :hover {
