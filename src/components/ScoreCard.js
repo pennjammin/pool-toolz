@@ -7,7 +7,7 @@ const ColumnContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 400px;
     width: 500px;
 `;
 
@@ -37,6 +37,14 @@ const ScoreColumn = styled.div`
     margin-bottom: 100px;
 `;
 
+const DatumColumn = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+`;
+
 const PlayerTitle = styled.div`
     font-size: 25px;
     color: pink;
@@ -48,9 +56,33 @@ const ScoreTitle = styled.div`
 `;
 
 const DatumTitle = styled.div`
-    margin: 10px;
     font-size: 30px;
     color: pink;
+    margin: 5px;
+
+`;
+
+const ButtonDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+`;
+
+const BallDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid pink;
+    border-radius: 50%;
+    width: 1px;
+    height: 1px;
+    padding: 20px;
+`;
+
+const BallText = styled.div`
+    color: white;
 `;
 
 const StyledButton = styled(Button)`
@@ -81,7 +113,8 @@ class ScoreCard extends Component {
             totalPointsP2: 0,
             safePointsP2: 0,
             missPointsP2: 0,
-            foulPointsP2: 0
+            foulPointsP2: 0,
+            ballsLeft: 15
         };
 
         this.onClickSafe = this.onClickSafe.bind(this);
@@ -93,11 +126,11 @@ class ScoreCard extends Component {
 
     }
 
-    onClickSafe(){
+    onClickMiss(){
 
     }
 
-    onClickSafe(){
+    onClickFoul(){
 
     }
 
@@ -112,7 +145,8 @@ class ScoreCard extends Component {
             totalPointsP2,
             safePointsP2,
             missPointsP2,
-            foulPointsP2
+            foulPointsP2,
+            ballsLeft
         } = this.state
 
         return (
@@ -122,27 +156,32 @@ class ScoreCard extends Component {
                         <PlayerTitle>{currentPlayers[0]}</PlayerTitle>
                         <ScoreTitle>{totalPointsP1}</ScoreTitle>
                     </ScoreColumn>
-                    <DatumTitle>{safePointsP1}</DatumTitle>
-                    <DatumTitle>{missPointsP1}</DatumTitle>
-                    <DatumTitle>{foulPointsP1}</DatumTitle>
+                    <DatumColumn>
+                        <DatumTitle>{safePointsP1}</DatumTitle>
+                        <DatumTitle>{missPointsP1}</DatumTitle>
+                        <DatumTitle>{foulPointsP1}</DatumTitle>
+                    </DatumColumn>
                 </PlayerColumn>
                 <CenterColumn>
-                    <div>Balls</div>
-                    <div>Balls</div>
-                    <div>Balls</div>
-                    <div>Balls</div>
-                    <StyledButton>SAFE</StyledButton>
-                    <StyledButton>MISS</StyledButton>
-                    <StyledButton>FOUL</StyledButton>
+                    <BallDiv>
+                        <BallText>{ballsLeft}</BallText>
+                    </BallDiv>
+                    <ButtonDiv>
+                        <StyledButton>SAFE</StyledButton>
+                        <StyledButton>MISS</StyledButton>
+                        <StyledButton>FOUL</StyledButton>
+                    </ButtonDiv>
                 </CenterColumn>
                 <PlayerColumn>
                     <ScoreColumn>
                         <PlayerTitle>{currentPlayers[1]}</PlayerTitle>
                         <ScoreTitle>{totalPointsP2}</ScoreTitle>
                     </ScoreColumn>
-                    <DatumTitle>{safePointsP2}</DatumTitle>
-                    <DatumTitle>{missPointsP2}</DatumTitle>
-                    <DatumTitle>{foulPointsP2}</DatumTitle>
+                    <DatumColumn>
+                        <DatumTitle>{safePointsP2}</DatumTitle>
+                        <DatumTitle>{missPointsP2}</DatumTitle>
+                        <DatumTitle>{foulPointsP2}</DatumTitle>
+                    </DatumColumn>
                 </PlayerColumn>
             </ColumnContainer>
         )
