@@ -40,7 +40,7 @@ class Tracker extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gamePlay: false,
+            gamePlay: true,
             players: []
         };
     }
@@ -104,7 +104,7 @@ class Tracker extends Component {
                         required
                     />
                     <StyledButton type="submit">
-                        <p>PLAY BALL!</p>
+                        PLAY BALL!
                     </StyledButton>
                 </SubmitForm>
             </PlayerContainer>

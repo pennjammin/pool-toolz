@@ -48,7 +48,7 @@ const FlexRow = styled.div`
     display: flex;
     align-items: center;
     position: absolute;
-    top: 315px;
+    top: 343px;
     bottom: 0px;
     left: 226px;
     color: #E7E7EA;

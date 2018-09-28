@@ -32,7 +32,7 @@ const Rings = styled.img`
   position: relative;
   height: 125px;
   top: 0;
-  left: 115px;
+  left: 112px;
   margin-left: 50px;
 `;
 
@@ -40,7 +40,7 @@ const EightBall = styled.img`
   height: 20px;
   position: absolute;
   top: 53px;
-  left: 193px;
+  left: 190px;
   margin-left: 50px;
 
   :hover {
