@@ -32,6 +32,7 @@ const StyledButton = styled(Button)`
         height: 48px;
         padding: 0 30px;
         box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+        cursor: pointer;
     }
 `;
 
@@ -49,14 +50,12 @@ class Tracker extends Component {
         this.hydrateStateWithLocalStorage();
     }
 
-    onSubmit = async (e) => {
+    onSubmit = async (event) => {
         this.setState({
-            players: this.state.players.push(this.playerOne.value, this.playerTwo.value)
-        });
+            players: this.state.players.push({name: this.playerOne.value, score: 0}, {name: this.playerTwo.value, score:0})
+        }, ()=>{this.switchOnGameplay();});
 
-        localStorage.setItem('players', JSON.stringify(this.state.players));
-
-        this.switchOnGameplay();
+        localStorage.setItem('players', JSON.stringify(this.state.players));        
     }
 
     hydrateStateWithLocalStorage() {

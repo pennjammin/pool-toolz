@@ -1,2 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Welcome to the Pool Toolz demo! This is a small app that helps track a game of straight pool (14.1/125 points).
+
+It is build in React and utilizes Styled Components as it's CSS-in-JS mechanism.
+As this was to be a demo, I leveraged localStorage as suggested as a sort of faux backend. It was designed for mobile first as it makes way more sense being view from such a medium.
+I will be adding planned features/bugs as issues (at the moment the only glaring on has to do with an edge case regarding the search functionality).
+I would love any and all feed back (feel free to put an issue in and I will try and get to it over the weekend if you'd like)!
+I did not want to over-engineer this and that is why I went with straight React (plus create-react-app has a built-in service worker and I would like this to function as a PWA since it would be used primarily on mobile). Plus, I did not want there to be much boilerplate since this is supposed to showcase how I code. I tried to demo skills without over doing it for something small. It is currently being hosted on Zeit's now (free tier) and they freeze artifacts so if initial load is slow that is why. I would typically take the time to get CDN's and lots of other stuff invoved but again I was shooting more for speed. Let me know if there are any questions! Thanks a bunch for your time.
 

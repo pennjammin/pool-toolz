@@ -4,6 +4,8 @@ import Leaderboard from './components/Leaderboard.js';
 import CardFlipper from './components/CardFlipper.js'
 import Tracker from './components/Tracker.js'
 
+import { device } from './device.js' 
+
 import eightBall from './static/eight-jawn.svg';
 import rings from './static/rings.svg';
 import felt from './static/pool_table.png';
@@ -20,6 +22,11 @@ const AppDiv = styled.div`
   top: 0;
   left: 0;
   z-index: -1;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  @media ${device.laptop} {
+    align-items: center;
+  }
 `;
 
 const LayeredImages = styled.div`
@@ -58,8 +65,13 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+    
     this.state = {
-      users: [ {name: `Penn`, score: 1}, ],
+      users: JSON.parse(localStorage.getItem('players')) ? 
+        JSON.parse(localStorage.getItem('players')) : 
+        [ 
+          {name: "Penn", score: 9999999}
+       ],
       paginate: 10
     };
   }
@@ -73,7 +85,7 @@ class App extends Component {
           <EightBall src={eightBall} />
         </LayeredImages>
         <CardFlipper>
-          <Tracker></Tracker>
+          <Tracker />
           <div>
             <Leaderboard users={this.state.users} paginate={this.state.paginate}/>
           </div>
