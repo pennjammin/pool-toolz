@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Leaderboard from './Leaderboard.js';
-import CardFlipper from './CardFlipper.js'
-import Tracker from './Tracker.js'
+import Leaderboard from './components/Leaderboard.js';
+import CardFlipper from './components/CardFlipper.js'
+import Tracker from './components/Tracker.js'
 
 import eightBall from './static/eight-jawn.svg';
 import rings from './static/rings.svg';
@@ -32,7 +32,7 @@ const Rings = styled.img`
   position: relative;
   height: 125px;
   top: 0;
-  left: 87px;
+  left: 115px;
   margin-left: 50px;
 `;
 
@@ -40,7 +40,7 @@ const EightBall = styled.img`
   height: 20px;
   position: absolute;
   top: 53px;
-  left: 166px;
+  left: 193px;
   margin-left: 50px;
 
   :hover {
@@ -53,30 +53,13 @@ const EightBall = styled.img`
   }
 `;
 
-const FrontDiv = styled.div`
-  width: 500px;
-  height: 536px;
-`;
-
-
-
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      users: [{name: "Penn", score: 1},
-              {name: "Doug", score: 7},
-              {name: "Matt", score: 15},
-              {name: "Jake", score: 4},
-              {name: "Jill", score: 3},
-              {name: "Jay", score: 7},
-              {name: "Jackie", score: 8},
-              {name: "Alec", score: 4},
-              {name: "BJ", score: 3},
-              {name: "Ellen", score: 2},
-              {name: "Tuco", score: 1},],
+      users: [ {name: `Penn`, score: 1}, ],
       paginate: 10
     };
   }
