@@ -62,6 +62,10 @@ const LeftArrow = styled(KeyboardArrowLeft)`
     bottom: 0px;
     left: 226px;
     color: #E7E7EA;
+
+    :hover{
+        color: #C1C1C1;
+      }
 `
 
 class CardFlipper extends Component {
