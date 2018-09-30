@@ -9,9 +9,9 @@ I did not want to over-engineer this and that is why I went with straight React 
 
 
 DEVELOPMENT:
-  -fork/pull down
-  cd pool-toolz
-  yarn
+  -fork/pull down,
+  cd pool-toolz,
+  yarn,
   yarn start (yarn build for prod)
   
 
