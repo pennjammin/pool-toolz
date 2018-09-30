@@ -100,7 +100,6 @@ class ScoreCard extends Component {
     constructor(props){
         super(props);
         this.state = {
-            players: JSON.parse(localStorage.getItem('players')),
             activePlayerOne: true,
             currentPlayers: JSON.parse(localStorage.getItem('players')) ? 
                 [
@@ -130,6 +129,12 @@ class ScoreCard extends Component {
             this.setState({
                 totalPointsP1: this.state.totalPointsP1 + 1,
                 ballsLeft: this.state.ballsLeft - 1
+            }, ()=>{
+                if(this.state.ballsLeft === 0){
+                    var players = JSON.parse(localStorage.getItem('players'));
+                    players.slice(-2)[0].score += 1;
+                    localStorage.setItem('players', JSON.stringify(players)); 
+                }
             });
         }
 
@@ -140,15 +145,15 @@ class ScoreCard extends Component {
             this.setState({
                 totalPointsP2: this.state.totalPointsP2 + 1,
                 ballsLeft: this.state.ballsLeft - 1
+            }, ()=>{
+                if(this.state.ballsLeft === 0){
+                    var players = JSON.parse(localStorage.getItem('players'));
+                    players.slice(-2)[1].score += 1;
+                    localStorage.setItem('players', JSON.stringify(players));
+                }
             });
         }
-        if(this.state.ballsLeft < 2){
-            console.log(this.state.currentPlayers[0].score + 1)
-            this.state.currentPlayers[1].score += 1;
-            this.state.players.pop();
-            this.state.players.push(this.state.currentPlayers[1]);
-            localStorage.setItem('players', JSON.stringify(this.state.players)); 
-        }
+        
     }
 
     onClickSafe(){
