@@ -22,7 +22,7 @@ const Column = styled.div`
     ${props=>props.player && "height: 100%;width: 25%;"}
     ${props=>props.center && "height: 100%;width: 25%;"}
     ${props=>props.score && "margin-bottom: 100px;"}
-    ${props=>props.datum && "margin-top: 75px;"}
+    ${props=>props.datum && "margin-top: 100px;"}
 
 `;
 
@@ -95,6 +95,23 @@ const StyledButton = styled(Button)`
     }
 `;
 
+const StyledRerackButton = styled(Button)`
+    
+    &&{
+        background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+        border-radius: 3px;
+        border: 0;
+        color: white;
+        height: 30px;
+        width: 50%;
+        padding: 0 30px;
+        box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+        margin: 5px;
+        cursor: pointer;
+        visibility: ${props=>props.rerack ? "" : "hidden"}
+    }
+`;
+
 class ScoreCard extends Component {
 
     constructor(props){
@@ -114,7 +131,8 @@ class ScoreCard extends Component {
             safePointsP2: 0,
             missPointsP2: 0,
             foulPointsP2: 0,
-            ballsLeft: 15
+            ballsLeft: 15,
+            rerackVisible: false
         };
 
         this.onClickP1Points = this.onClickP1Points.bind(this);
@@ -122,6 +140,7 @@ class ScoreCard extends Component {
         this.onClickSafe = this.onClickSafe.bind(this);
         this.onClickMiss = this.onClickMiss.bind(this);
         this.onClickFoul = this.onClickFoul.bind(this);
+        this.reRack = this.reRack.bind(this);
     }
 
     onClickP1Points(){
@@ -130,15 +149,22 @@ class ScoreCard extends Component {
                 totalPointsP1: this.state.totalPointsP1 + 1,
                 ballsLeft: this.state.ballsLeft - 1
             }, ()=>{
-                if(this.state.ballsLeft === 0){
+                if(this.state.ballsLeft === 1){
+                    this.setState({
+                        rerackVisible: true
+                    });
+                } else if(this.state.ballsLeft === 0){
                     var players = JSON.parse(localStorage.getItem('players'));
                     players.slice(-2)[0].score += 1;
-                    localStorage.setItem('players', JSON.stringify(players)); 
+                    localStorage.setItem('players', JSON.stringify(players));
+                    this.reRack();
                 }
             });
         }
 
     }
+
+
 
     onClickP2Points(){
         if(!this.state.activePlayerOne){
@@ -146,15 +172,22 @@ class ScoreCard extends Component {
                 totalPointsP2: this.state.totalPointsP2 + 1,
                 ballsLeft: this.state.ballsLeft - 1
             }, ()=>{
-                if(this.state.ballsLeft === 0){
+                if(this.state.ballsLeft === 1){
+                    this.setState({
+                        rerackVisible: true
+                    });
+                } else if(this.state.ballsLeft === 0){
                     var players = JSON.parse(localStorage.getItem('players'));
                     players.slice(-2)[1].score += 1;
                     localStorage.setItem('players', JSON.stringify(players));
+                    this.reRack();
                 }
             });
         }
-        
     }
+
+
+
 
     onClickSafe(){
         if(this.state.activePlayerOne){
@@ -212,6 +245,19 @@ class ScoreCard extends Component {
         }
     }
 
+    reRack(){
+        this.setState({
+            safePointsP1: 0,
+            missPointsP1: 0,
+            foulPointsP1: 0,
+            safePointsP2: 0,
+            missPointsP2: 0,
+            foulPointsP2: 0,
+            ballsLeft: 15,
+            rerackVisible: false
+        });
+    }
+
     render () {
 
         const {
@@ -249,6 +295,7 @@ class ScoreCard extends Component {
                     <BallDiv>
                         <PointsText>{ballsLeft}</PointsText>
                     </BallDiv>
+                    <StyledRerackButton onClick={this.reRack} rerack={this.state.rerackVisible}>RERACK</StyledRerackButton>
                     <ButtonDiv>
                         <StyledButton onClick={this.onClickSafe}>SAFE</StyledButton>
                         <StyledButton onClick={this.onClickMiss}>MISS</StyledButton>

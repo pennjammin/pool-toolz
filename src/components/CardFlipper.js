@@ -48,7 +48,7 @@ const RightArrow = styled(KeyboardArrowRight)`
     display: flex;
     align-items: center;
     position: absolute;
-    top: 390px;
+    top: 400px;
     bottom: 0px;
     left: 226px;
     color: #E7E7EA;
@@ -58,7 +58,7 @@ const LeftArrow = styled(KeyboardArrowLeft)`
     display: flex;
     align-items: center;
     position: absolute;
-    top: 390px;
+    top: 400px;
     bottom: 0px;
     left: 226px;
     color: #E7E7EA;
