@@ -175,11 +175,25 @@ class ScoreCard extends Component {
             this.setState({
                 activePlayerOne: !this.state.activePlayerOne,
                 missPointsP1: this.state.missPointsP1 + 1
+            }, ()=>{
+                if(this.state.foulPointsP1 === 2){
+                    this.setState({
+                        foulPointsP1: 0,
+                        totalPointsP1: this.state.totalPointsP1 - 16
+                    });
+                }
             });
         }else{
             this.setState({
                 activePlayerOne: !this.state.activePlayerOne,
                 missPointsP2: this.state.missPointsP2 + 1
+            }, ()=>{
+                if(this.state.foulPointsP2 === 2){
+                    this.setState({
+                        foulPointsP2: 0,
+                        totalPointsP2: this.state.totalPointsP2 - 16
+                    });
+                }
             });
         }
     }
