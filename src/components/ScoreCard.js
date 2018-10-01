@@ -107,7 +107,7 @@ const StyledRerackButton = styled(Button)`
         box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
         margin: 5px;
         cursor: pointer;
-        visibility: ${props=>props.rerack ? "" : "hidden"}
+        visibility: ${props=>props.rerack === "true" ? "" : "hidden"}
     }
 `;
 
@@ -294,7 +294,7 @@ class ScoreCard extends Component {
                     <BallDiv>
                         <PointsText>{ballsLeft}</PointsText>
                     </BallDiv>
-                    <StyledRerackButton onClick={this.reRack} rerack={this.state.rerackVisible}>RERACK</StyledRerackButton>
+                    <StyledRerackButton onClick={this.reRack} rerack={this.state.rerackVisible.toString()}>RERACK</StyledRerackButton>
                     <ButtonDiv>
                         <StyledButton onClick={this.onClickSafe}>SAFE</StyledButton>
                         <StyledButton onClick={this.onClickMiss}>MISS</StyledButton>
