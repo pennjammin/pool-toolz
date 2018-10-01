@@ -23,7 +23,6 @@ const Column = styled.div`
     ${props=>props.center && "height: 100%;width: 25%;"}
     ${props=>props.score && "margin-bottom: 100px;"}
     ${props=>props.datum && "margin-top: 100px;"}
-
 `;
 
 
@@ -154,6 +153,9 @@ class ScoreCard extends Component {
                         rerackVisible: true
                     });
                 } else if(this.state.ballsLeft === 0){
+                    this.reRack();
+                }
+                if(this.state.totalPointsP1 === 125){
                     var players = JSON.parse(localStorage.getItem('players'));
                     players.slice(-2)[0].score += 1;
                     localStorage.setItem('players', JSON.stringify(players));
@@ -177,6 +179,9 @@ class ScoreCard extends Component {
                         rerackVisible: true
                     });
                 } else if(this.state.ballsLeft === 0){
+                    this.reRack();
+                }
+                if(this.state.totalPointsP2 === 125){
                     var players = JSON.parse(localStorage.getItem('players'));
                     players.slice(-2)[1].score += 1;
                     localStorage.setItem('players', JSON.stringify(players));
