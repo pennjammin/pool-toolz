@@ -252,12 +252,6 @@ class ScoreCard extends Component {
 
     reRack(){
         this.setState({
-            safePointsP1: 0,
-            missPointsP1: 0,
-            foulPointsP1: 0,
-            safePointsP2: 0,
-            missPointsP2: 0,
-            foulPointsP2: 0,
             ballsLeft: 15,
             rerackVisible: false
         });
