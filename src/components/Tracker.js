@@ -93,6 +93,7 @@ class Tracker extends Component {
                         type="name"
                         label="Player 1:"
                         required
+                        error
                     />
                     <StyledTextField
                         inputRef={(elm) => {
@@ -102,6 +103,7 @@ class Tracker extends Component {
                         type="name"
                         label="Player 2:"
                         required
+                        error
                     />
                     <StyledButton type="submit">
                         PLAY BALL!
