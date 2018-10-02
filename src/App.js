@@ -36,8 +36,8 @@ const LayeredImages = styled.div`
 `;
 
 const Rings = styled.img`
-  position: relative;
   height: 125px;
+  position: relative;
   top: 0;
   left: 112px;
   margin-left: 50px;
