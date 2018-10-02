@@ -7,8 +7,8 @@ import Button from '@material-ui/core/Button';
 
 const ColumnContainer = styled.div`
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 400px;
     width: 500px;
 `;
@@ -16,8 +16,8 @@ const ColumnContainer = styled.div`
 const Column = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     ${props=>props.player && "height: 100%;width: 25%;"}
     ${props=>props.center && "height: 100%;width: 25%;"}
@@ -62,15 +62,15 @@ const DatumTitle = styled.div`
 const ButtonDiv = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     margin-top: 100px;
 `;
 
 const BallDiv = styled.div`
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     border: 5px solid pink;
     border-radius: 50%;
     width: 1px;
