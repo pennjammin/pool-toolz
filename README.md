@@ -1,6 +1,6 @@
 Welcome to the Pool Toolz demo! This is a small app that helps track a game of straight pool (14.1/125 points).
 
-PLEASE BE AWARE THAT THE FREE TIER OF ZEIT'S NOW HOSTING ARTIFACTS DEPLOYMENTS, ERGO, THE FIRST LOAD TAKES A BIT.
+PLEASE BE AWARE THAT THE FREE TIER OF ZEIT'S NOW HOSTING ARTIFACTS DEPLOYMENTS, ERGO, THE FIRST LOAD TAKES A BIT. Also, since it is currently using localStorage, sometimes localStorage.clear() in the console can be helpful. Cheers!
 
 It is build in React and utilizes Styled Components as it's CSS-in-JS mechanism. Hence the remixed React logo! I tried to keep it minimal and sharp considering my audience. As this was to be a demo, I leveraged localStorage as suggested as a sort of faux backend. It was designed for mobile first as it makes way more sense being viewed from such a medium. It would work well as a PWA so I am building it out as such.
 
