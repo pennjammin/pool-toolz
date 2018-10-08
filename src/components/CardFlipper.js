@@ -52,6 +52,11 @@ const RightArrow = styled(KeyboardArrowRight)`
     bottom: 0px;
     left: 226px;
     color: #E7E7EA;
+    cursor: pointer;
+
+    :hover{
+        color: #C1C1C1;
+      }
 `
 
 const LeftArrow = styled(KeyboardArrowLeft)`
@@ -62,6 +67,7 @@ const LeftArrow = styled(KeyboardArrowLeft)`
     bottom: 0px;
     left: 226px;
     color: #E7E7EA;
+    cursor: pointer;
 
     :hover{
         color: #C1C1C1;
